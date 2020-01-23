@@ -1,8 +1,8 @@
 # README
 
-* git clone https://github.com/nraju-nyros/peppa
+* git clone https://github.com/nraju-nyros/foodfie-stripe
 
-* cd foodfie
+* cd foodfie-stripe
 
 * bundle install
 
