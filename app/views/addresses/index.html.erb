@@ -1,29 +1,30 @@
 <%= render :partial => 'shared/nav'%>
 <div class="container">
   <div class="" style="margin-top: 100px;">
-    <%= link_to 'Your Account', user_path(current_user)%> &nbsp;<i class="a-breadcrumb-divider">›</i><span>Your Addresses</span><hr>
-      
-      <div class="row no-gutters">
-        <div class="col-sm-12 col-md mr-md-3 add_address" style="">
-              <%= link_to 'Add Address', new_address_path(x:1) %>
-        </div>
-          
-        <% @addresses.each do |a| %>
-        <div class="col-sm-12 col-md mr-md-3 address_page">
-          <div style="padding-left: 50px;">
-              <b><%= a.full_name %></b><br>
-              <span><%= a.mobile %></span><br>
-              <span><%= a.house_no %></span><br>
-              <span><%= a.street %></span><br>
-              <span><%= a.landmark %></span><br>
-              <span><%= a.city %>,<%= a.pincode %></span><br>
-              <span><%= a.state %></span><br>
-                <%= link_to 'Edit', edit_address_path(a, x:1)%>&nbsp;&nbsp;
-                <%= link_to 'Delete', address_path(a), method: :delete, data: {confirm: 'Are you sure?'}%>
-                <br>
-          </div>  
-        </div>
-        <% end %>
+    <%= link_to 'Your Account', user_path(current_user)%> &nbsp;<i class="a-breadcrumb-divider">›</i>
+    <span>Your Addresses</span><hr>
+
+    <div class="row no-gutters">
+      <div class="col-sm-12 col-md mr-md-3 add_address" style="">
+        <%= link_to 'Add Address', new_address_path(x:1) %> 
       </div>  
+      <% @addresses.each do |a| %>
+      <div class="col-sm-12 col-md mr-md-3 address_page">
+        <div style="padding-left: 50px;">
+          <b><%= a.full_name %></b><br>
+          <span><%= a.mobile %></span><br>
+          <span><%= a.house_no %></span><br>
+          <span><%= a.street %></span><br>
+          <span><%= a.landmark %></span><br>
+          <span><%= a.city %>,<%= a.pincode %></span><br>
+          <span><%= a.state %></span><br>
+          <%= link_to 'Edit', edit_address_path(a, x:1)%>&nbsp;&nbsp;
+          <%= link_to 'Delete', address_path(a), method: :delete, data: {confirm: 'Are you sure?'}%>
+          <br>
+        </div>  
+      </div>
+      <% end %>
+    </div>
+
   </div>
 </div>

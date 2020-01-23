@@ -3,6 +3,41 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+/*user orders show*/
+  .account{ 
+    padding: 70px;
+    text-align: center;
+  }
+  .order_img1{
+    width: 50px;
+  }
+  .order_w{
+    width: 26px;
+  }
+
+/*password forgot page*/
+  .forgot_pwd_new{
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+  .forgot_txt_new{
+    padding-left: 35px;
+    padding-right: 35px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+ 
+
+  .col-sm-12{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+ 
+
+
 #form_email{
 	margin-left: 23px;
 }

@@ -1,7 +1,8 @@
   <h4>Overall Rating &nbsp;
     <%= @dish.ratings.average(:rating).present? ? @dish.ratings.average(:rating).round(1) : 0 %>
-    <i class="review-rating" data-score = " <%= @dish.ratings.average(:rating).present? ? @dish.ratings.average(:rating).round(1) : 0 %>"></i> 
-  </h4><br><i >Based on <%= @dish.ratings.count(:rating) %> Reviews</i><br>
+      <i class="review-rating" data-score = " <%= @dish.ratings.average(:rating).present? ? @dish.ratings.average(:rating).round(1) : 0 %>"></i> 
+  </h4><br>
+  <i >Based on <%= @dish.ratings.count(:rating) %> Reviews</i><br>
 
   <div>
      <i class="review-rating" data-score = "5"></i> &nbsp;<span>(<%= @dish.ratings.where(rating: 5).count %>)</span>
@@ -22,20 +23,20 @@
   <div>
     <i class="review-rating" data-score = "1"></i> &nbsp;<span>(<%= @dish.ratings.where(rating: 1).count %>)</span>
   </div>
-<script type="text/javascript">
-  $('.rating-form').raty({
-    path:'/assets/',
-    scoreName: 'rating[rating]',
-    score: 1
-  });
+  <script type="text/javascript">
+    $('.rating-form').raty({
+      path:'/assets/',
+      scoreName: 'rating[rating]',
+      score: 1
+    });
 
-  $(".review-rating").raty({
-    readOnly: true,
-    score: function() {
-    return $(this).attr("data-score");
-    },
-    path: "/assets/"
-  });
-</script>
+    $(".review-rating").raty({
+      readOnly: true,
+      score: function() {
+      return $(this).attr("data-score");
+      },
+      path: "/assets/"
+    });
+  </script>
 
 

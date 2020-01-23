@@ -1,20 +1,21 @@
 <div class="container"  >
   <div align="center" class="form"><br>
     <h2><%= @restaurant.name%></h2>
-    <h3>Edit dish</h3> 
+    <h3>Edit dish</h3>
+
     <%= form_for @dish, url: {action: :update} do |f| %>
       <div class="form-group">
         <div class="col-sm-12">    
           <label>Name </label>
           <span class="err"><%= @dish.errors[:name].join('. ') %></span><br/>
-            <%= f.text_field :name , :class => 'form-control', :placeholder => 'Name'%>
+          <%= f.text_field :name , :class => 'form-control', :placeholder => 'Name'%>
         </div>
       </div>
        
       <div class="form-group">
         <div class="col-sm-12"> 
           <label>Price </label>
-           <span class="err"><%= @dish.errors[:price].join('. ') %></span><br/>
+          <span class="err"><%= @dish.errors[:price].join('. ') %></span><br/>
           <%= f.text_field :price, :class => 'form-control', :placeholder => 'Email'  %>
         </div>
       </div>
@@ -22,8 +23,8 @@
       <div class="form-group">
         <div class="col-sm-12">    
           <label>Category </label>
-            <span class="err"><%= @dish.errors[:price].join('. ') %></span><br/>
-              <%= f.select( :category_id, options_from_collection_for_select(Category.all, "id", "name"), {}, {:class => 'form-control'}) %>        
+          <span class="err"><%= @dish.errors[:price].join('. ') %></span><br/>
+          <%= f.select( :category_id, options_from_collection_for_select(Category.all, "id", "name"), {}, {:class => 'form-control'}) %>        
         </div>
       </div>
 
@@ -36,18 +37,18 @@
         </div>
       </div>
 
-       <div class= "form-group" >
+      <div class= "form-group" >
         <div class="col-sm-12">
           <%= f.submit "Save",class: "btn btn-block btn-md btn-primary " %>
         </div>
       </div>
 
-       <div class= "form-group" >
+      <div class= "form-group" >
         <div class="col-sm-12">
-          <%= link_to 'Back to dishes',admin_restaurant_dishes_path,:class => "btn btn-sm btn-info "  %>   
+          <%= link_to 'Back to dishes',admin_restaurant_dishes_path,:class => "btn btn-sm btn-info " %> 
         </div>
       </div>
-      
     <% end %>
+    
   </div>
 </div>

@@ -5,7 +5,6 @@
       <%= image_tag(p.image_url, :class => 'img') %> 
     <% end %>  
     <h5><%= @dish.name %> Add Rating</h5>
-
     <%= form_for @rating, url: {action: :create} do |f| %>
       <div class="form-group">
         <div class="col-sm-8">    

@@ -22,10 +22,10 @@
 <div class="container" align="center">
   <div class="form-horizontal no-border form u-dimension-2"  style ="margin-top:30px; width: 450px;"align="center" >
 	  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-			<p align="center" class="forgot_pwd">Forgot your password?</p>
-			<p class="forgot_txt" >We got you. Just enter your email below and we'll send you a link to get in.</p>
+			<p align="center" class="forgot_pwd_new">Forgot your password?</p>
+			<p class="forgot_txt_new" >We got you. Just enter your email below and we'll send you a link to get in.</p>  
 
-	    <div class="form-group">
+	    <div class="form-group pwd_new">
 	      <div class="col-sm-12">
 	        <%= f.label :email %>
 	          <%= render "devise/shared/error_messages", resource: resource %>
@@ -33,7 +33,7 @@
 	      </div>
 	    </div>
 
-	    <div class="form-group">
+	    <div class="form-group pwd_new">
 	      <div class="col-sm-12">
 	        <%= f.submit "Submit", class: 'submitBtn btn btn-block btn-success btn', id:'sign_in' %>
 	     </div>
@@ -46,54 +46,3 @@
 	  <% end %>
 	</div>
 </div> 
-
-
-
-
-
-
-<style type="text/css">
-  .form-group{
-    width:356px;
-  }
-
-  h2{
-  	display: none;
-  }
-
-  .form{
-   
-    padding-top: 30px;
-    padding-bottom: 50px;
-  }
-  .col-sm-12{
-    padding-left: 0px;
-    padding-right: 0px;
-  }
- 
-  .error{
-    color: red;
-  }
-  .forgot_txt{
-  	padding-left: 35px;
-  	padding-right: 35px;
-  	font-size: 14px;
-    font-weight: 600;
-  }
-   
-
-  .forgot_pwd{
-  	font-size: 25px;
-    font-weight: 700;
-
-   }
-  #error_explanation li{
-  	color: red;
-  }
-
-  a:hover{
-      text-decoration-line: none;
-    
-  }
-</style>
-

@@ -18,16 +18,17 @@
               <%= link_to '', dish_wishlists_path(d),:class => 'fa fa-heart-o', :id => 'heart1', method: :post, :title => 'Add to wishlist' %>  
            <% end %>
           </div>
+
           <figcaption>
             <div>
               <h2><%= d.name %></h2>
-              <% d.restaurants.each do |r|%>
-                <p>
-                  <span style="font-size:15px; float: left;">
-                     <%= link_to r.name, restaurant_path(r), :class => 'restaurant_link' %>
-                  </span>
-                  <span class="price">&#8377; <%= d.price%></span>
-                </p>
+                <% d.restaurants.each do |r|%>
+                  <p>
+                    <span style="font-size:15px; float: left;">
+                       <%= link_to r.name, restaurant_path(r), :class => 'restaurant_link' %>
+                    </span>
+                    <span class="price">&#8377; <%= d.price%></span>
+                  </p>
               <% end %>
             </div>
           </figcaption>

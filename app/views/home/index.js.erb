@@ -6,10 +6,10 @@ if("<%= params[:from_search]%>"){
 }
 
 else{
-	$('#dishes').append('<%= j render(:partial => "home/dishes")  %>');
-	<% if @dishes.next_page %>
-	  $('.pagination').replaceWith('<%= j will_paginate(@dishes) %>');
-	<% else %>
-	  $('.pagination').remove();
-	<% end %>
+  $('#dishes').append('<%= j render(:partial => "home/dishes")  %>');
+  <% if @dishes.next_page %>
+    $('.pagination').replaceWith('<%= j will_paginate(@dishes) %>');
+  <% else %>
+    $('.pagination').remove();
+  <% end %>
 }

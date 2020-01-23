@@ -7,11 +7,11 @@ if("<%= params[:price] || params[:ratings] || params[:ratings_filter] || params[
 
 }
 else{
-	$('#dishes').append('<%= j render(:partial => "home/search_dishes")  %>');
-	<% if @dishes.next_page %>
-	  $('.pagination').replaceWith('<%= j will_paginate(@dishes) %>');
-	<% else %>
-	  $('.pagination').remove();
-	<% end %>
+  $('#dishes').append('<%= j render(:partial => "home/search_dishes")  %>');
+  <% if @dishes.next_page %>
+    $('.pagination').replaceWith('<%= j will_paginate(@dishes) %>');
+  <% else %>
+    $('.pagination').remove();
+  <% end %>
 }
 

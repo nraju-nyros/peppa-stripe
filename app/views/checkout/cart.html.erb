@@ -10,10 +10,13 @@
 							<% @current_cart.line_items.each do |item| %>
 							<%  total_count += item.quantity %>
 						<% end %>
-						<div class="h5">My Shopping Bag (<%= total_count %>)</div>
-					 </div>
+						<div class="h5">
+							My Shopping Bag (<%= total_count %>)
+						</div>
+					</div>
+
 					<% @cart.line_items.each do |item| %>
-					 <div class="cart_item">
+					<div class="cart_item">
 						<div class="" id="leftbox">
 							<%= link_to dish_path(item.dish) do %> 
 								<% item.dish.pictures.each do |p| %>
@@ -48,9 +51,8 @@
 										</div>
 									</div>
 								</div>
-
-
 						</div>
+
 						<div class="" id="rightbox">
 							<p style="text-align:right;">Price: &#8377; <%= item.dish.price %></p><br>
 							<span>Qty</span>&nbsp;&nbsp;
@@ -60,16 +62,14 @@
 						</div>  
 					</div>
 					<% end %> 
-				 
 				</div>
 				
-
 				<div class="col-md-4">
 					<div class="cart_items checkout_cart">
 						<p style=""> Sub total: <b style="float: right;">  &#8377; <%= @cart.sub_total%></b> </p>
 						<p style=""> Tax: <b style="float: right;">  &#8377; 0</b> </p>
 						<p style=""> Total: <b style="float: right;">  &#8377; <%= @cart.sub_total%></b> </p>
-						
+					
 						<div style="float: right;"> <br><br>
 							<%= link_to "Continue Shopping", root_path, :class => 'btn btn-sm btn-success' %> 
 							<%= link_to "Checkout", checkout_address_path, :class => 'btn btn-sm btn-info'%>
@@ -82,13 +82,14 @@
 			</div>
 		<% else %>
 			<div class="cartEmpty-container">
-				<div class="cartEmpty-img cartEmpty-icon sprites-emptyIcon">   
+				<div class="cartEmpty-img cartEmpty-icon sprites-emptyIcon">
+
 				</div>
 				<div class="cartEmpty-heading">
 					YOUR CART IS EMPTY
 				</div>
 				<div class="cartEmpty-info">
-				 Add Something to Make happy :)
+				  Add Something to Make happy :)
 				</div>
 				<div>
 					<a href="/" class="cartEmpty-button">CONTINUE SHOPPING</a>
