@@ -1,6 +1,6 @@
 class DishesController < ApplicationController
   # before_action :authenticate_user!
-	def index
+  def index
     @dishes = Dish.all
   end
 
