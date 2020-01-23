@@ -4,13 +4,12 @@
 
 
   .cart_list{
-   
     padding: 20px;
   }
-    .cart_links{
+
+  .cart_links{
     color:#0d6a94;
     font-size: 14px;
-
   }
   .cart_links:hover{
     color: #c45500;
@@ -18,9 +17,9 @@
   }
 
   .img_cart{
-  height: 112px;
-  width: 112px;
-}
+    height: 112px;
+    width: 112px;
+  }
 
   .quantity_icons{
     width: 28px;
@@ -34,11 +33,11 @@
     padding-top: 1px;
     text-align: center;
     color:#000;
- }
+  }
 
- .quantity_icons:hover{
-  text-decoration:none;
- }
+  .quantity_icons:hover{
+    text-decoration:none;
+  }
 
   .quantity {
     display: inline-block;
@@ -50,18 +49,20 @@
     background-color: #fff;
     border: 1px solid #c2c2c2;
     margin: 0 5px;
-}
-.sub_total{
-  padding: 20px;
-  border-top: 1px solid #e2dbdb;
-}
+  }
+
+  .sub_total{
+    padding: 20px;
+    border-top: 1px solid #e2dbdb;
+  }
 
 
-.cartEmpty-container {
+  .cartEmpty-container {
     max-width: 980px;
     margin: 30px auto 180px auto;
     text-align: center;
   }
+
   .cartEmpty-heading {
     font-size: 20px;
     font-weight: 600;
@@ -76,7 +77,6 @@
   }
 
   .cartEmpty-icon{
-  
     display:inline-block;
   }
 
@@ -103,62 +103,53 @@
     text-decoration:none;
   }
 
-
   .cart_items{
-  background: #fff none repeat scroll 0 0;
-  border-radius: 0.3125vw;
-  box-shadow: 0.078125vw 0.078125vw 0.625vw -0.390625vw rgba(0, 0, 0, 0.4);
-  float: left;
-  margin-top: 1.171875vw;
-  padding: 20px 20px; 
-  width: 100%;
-  border: 0.078125vw solid #ededed !important;
-}
+    background: #fff none repeat scroll 0 0;
+    border-radius: 0.3125vw;
+    box-shadow: 0.078125vw 0.078125vw 0.625vw -0.390625vw rgba(0, 0, 0, 0.4);
+    float: left;
+    margin-top: 1.171875vw;
+    padding: 20px 20px; 
+    width: 100%;
+    border: 0.078125vw solid #ededed !important;
+  }
 
-.hm_featured_books_title {
-   
+  .hm_featured_books_title {
     margin-bottom: 20px;
-}
+  }
 
-.cart_item{
-  height: 180px;
-  border-top: solid 0.078125vw #e0dddd;
-  padding-top: 20px;
-}
+  .cart_item{
+    height: 180px;
+    border-top: solid 0.078125vw #e0dddd;
+    padding-top: 20px;
+  }
 
-#leftbox { 
-  float:left;  
-  width:25%; 
-  height:150px; 
-} 
-#middlebox{ 
-  float:left;  
-  width:50%; 
-  height:150px; 
-} 
-#rightbox{ 
-  float:right; 
-  width:25%; 
-  height:150px; 
-}
+  #leftbox { 
+    float:left;  
+    width:25%; 
+    height:150px; 
+  } 
+  #middlebox{ 
+    float:left;  
+    width:50%; 
+    height:150px; 
+  } 
+  #rightbox{ 
+    float:right; 
+    width:25%; 
+    height:150px; 
+  }
 
 
-.checkout_cart p {
+  .checkout_cart p {
     border-bottom: 0.078125vw solid #e8e6e7;
     float: left;
     font-size: 1.2vw;
     font-weight: 100;
     margin: 0;
     padding: 0.5vw 0;
-    width: 100%;
-    
-} 
-
-
-
-
-
-
+    width: 100%;   
+  } 
 
   .address_list{
     padding-left: 50px;

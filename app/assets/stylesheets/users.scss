@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-/*user orders show*/
+  /*user orders show*/
   .account{ 
     padding: 70px;
     text-align: center;
@@ -15,7 +15,7 @@
     width: 26px;
   }
 
-/*password forgot page*/
+  /*password forgot page*/
   .forgot_pwd_new{
     font-size: 25px;
     font-weight: 700;
@@ -28,53 +28,42 @@
     font-weight: 600;
   }
 
- 
-
   .col-sm-12{
     padding-left: 0px;
     padding-right: 0px;
   }
 
- 
+  #form_email{
+    margin-left: 23px;
+  }
 
+  #sign_in_from{
+    margin-left: 400px;
+  }
 
-#form_email{
-	margin-left: 23px;
-}
+  .form1 {
+    margin: 0 auto;
+    width: 470px;
+    background-color: white;
+    padding-left: 0px;
+  }
 
-
-
-#sign_in_from{
-	margin-left: 400px;
-}
-
-/*.new_user{
-	margin-top: 100px;
-}*/
-
-.form1 {
-  margin: 0 auto;
-  width: 470px;
-  background-color: white;
-  padding-left: 0px;
-}
-
-.form1 label {
+  .form1 label {
     display: inline-block;
     text-align: right;
      
-}
+  }
 
-.modal_form{
-	margin-top: 0px;
-}
+  .modal_form{
+    margin-top: 0px;
+  }
 
-.homepage_dish{
+  .homepage_dish{
     height: 100%;
     width: 50%;
     position:fixed;
   }
-  
+
   .login{
     padding-right: 20px;
     color:#0066ff;
@@ -82,61 +71,49 @@
     line-height: 1.44359;
     border: 0px;
     font-weight:700;
-
-
   }
 
-  .login a:hover{
-
-  }
 
   .signup{
     padding-right: 100px;
-      color:#0066ff;
-    
+    color:#0066ff;
     font-size: 20.3px;
     line-height: 1.44359;
     border: 0px;
-      font-weight:700;
-
-
+    font-weight:700;
   }
 
   .top-left {
-  position: absolute;
-  top:450px;
-  left:10px;
-  color: #f79b9b;
-  font-size: 50px;
-  font-weight: 900;
+    position: absolute;
+    top:450px;
+    left:10px;
+    color: #f79b9b;
+    font-size: 50px;
+    font-weight: 900;
+  }
 
-}
+  .top-left:hover{
+    color: #f79b9b;
+  }
 
- .top-left:hover{
-  color: #f79b9b;
-}
+  .bottom_img{
+    width: 300px;
+    height: 300px;
+  }
+  .main_header{
+    font-weight: 800;
+    font-size:40px;
+    color: black;
+  }
 
-.bottom-right {
+  a:hover{
+    text-decoration-line: none;
 
-}
-.bottom_img{
-  width: 300px;
-  height: 300px;
-}
-.main_header{
-  font-weight: 800;
-  font-size:40px;
-  color: black;
-}
+  }
 
-a:hover{
-  text-decoration-line: none;
-  
-}
-
-.u-dimension-2 {
+  .u-dimension-2 {
     box-shadow: 0 0 0 1px rgba(67,41,163,.1), 0 1px 8px 0 rgba(67,41,163,.1);
-}
+  }
 
   /*Edit password page*/
   #error_explanation h2{

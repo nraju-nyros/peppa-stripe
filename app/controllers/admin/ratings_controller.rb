@@ -47,7 +47,6 @@ class Admin::RatingsController < ApplicationController
   end   
    
   private
-
   def rating_params   
     params.require(:rating).permit(:rating) 
   end   
