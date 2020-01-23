@@ -1,16 +1,16 @@
 <%= render :partial => 'shared/nav'%>
 <div class="container">
-	<div style="margin-top: 100px;">
-		<h2>Update Address</h2><hr>
+  <div style="margin-top: 100px;">
+    <h2>Update Address</h2><hr>
       <% id = request.query_parameters %>
       <% x = id['x'] %>
 
     <% if (x=='1') %>
-  	  <%= form_for @address, url:{action: :update, y:1 } do |f| %>
-  	  <div class="row">
-  	    <div class="col-md-6">
-      	  <%= f.label :full_name %> 
-    		  <%= f.text_field :full_name , :class => 'form-control', :placeholder => 'Full name'%><br>
+      <%= form_for @address, url:{action: :update, y:1 } do |f| %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.label :full_name %> 
+          <%= f.text_field :full_name , :class => 'form-control', :placeholder => 'Full name'%><br>
            <%= f.label :mobile %>
           <%= f.text_field :mobile , :class => 'form-control', :placeholder => 'mobile'%><br>
            <%= f.label :pincode %>
@@ -19,8 +19,8 @@
           <%= f.text_field :house_no , :class => 'form-control', :placeholder => 'house_no'%><br>
         </div>
         <div class="col-md-6">
-    	    <%= f.label :street %>
-    		  <%= f.text_field :street , :class => 'form-control', :placeholder => 'street'%><br>
+          <%= f.label :street %>
+          <%= f.text_field :street , :class => 'form-control', :placeholder => 'street'%><br>
            <%= f.label :landmark %>
           <%= f.text_field :landmark , :class => 'form-control', :placeholder => 'land_mark'%><br>
            <%= f.label :city %>
@@ -29,10 +29,10 @@
           <%= f.text_field :state , :class => 'form-control', :placeholder => 'state'%>
           <%= f.hidden_field :user_id, :value => current_user.id %>
         </div>
-  	  </div>
-  	      <%= f.submit "Update", :class => 'btn btn-success modal_btn' %>
+      </div>
+          <%= f.submit "Update", :class => 'btn btn-success modal_btn' %>
           <%= link_to 'Back', :back, :class => 'btn btn-sm btn-info'%>
-  	  <% end %>
+      <% end %>
     <% end %>
 
     <% if (x=='2') %>
@@ -66,5 +66,5 @@
     <% end %>
 
 
-	</div>
+  </div>
 </div>
