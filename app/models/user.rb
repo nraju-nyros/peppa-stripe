@@ -3,7 +3,7 @@ class User < ApplicationRecord
 	
 	has_many :orders
 	
-    has_many :wishlists
+        has_many :wishlists
 
 	has_many :addresses, dependent: :destroy
 
