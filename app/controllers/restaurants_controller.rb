@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-    # before_action :authenticate_user!
+
   def show
     @restaurant = Restaurant.find(params[:id])
     @dishes =  @restaurant.dishes
@@ -9,9 +9,7 @@ class RestaurantsController < ApplicationController
 
     if params[:ratings]
       @dishes =  @restaurant.dishes.by_rating
-
       @dish_avg = @restaurant.dishes.joins(:ratings).group('dishes.id')
-      
     end
 
     if params[:ratings_filter]
@@ -37,6 +35,5 @@ class RestaurantsController < ApplicationController
     if params[:desserts]
       @dishes =  @restaurant.dishes.where("category_id":4)
     end
-   
   end   
 end

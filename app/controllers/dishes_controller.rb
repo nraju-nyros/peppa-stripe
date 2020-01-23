@@ -5,9 +5,7 @@ class DishesController < ApplicationController
   end
 
   def show
-  
     @dish = Dish.find(params[:id])
-   
     @rating = Rating.new
   end
 
@@ -16,7 +14,7 @@ class DishesController < ApplicationController
   end   
    
   def create 
-     @dish = Dish.create(dish_params)   
+    @dish = Dish.create(dish_params)   
     if @dish.save   
       respond_to do |format|
         format.html { redirect_to dishes_path, notice: 'Dish succesfully created' }
@@ -26,14 +24,13 @@ class DishesController < ApplicationController
     end   
   end  
 
-
   def edit 
     @dish = Dish.find(params[:id])
     @rating = Rating.find(params[:id])
   end 
    
   def update 
-   @dish = Dish.find(params[:id])   
+    @dish = Dish.find(params[:id])   
     if @dish.update_attributes(dish_params)   
       redirect_to dishes_path
     else     

@@ -1,31 +1,35 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   def index
-      @orders = Order.where(:user_id => current_user)
+    @orders = Order.where(:user_id => current_user)
   end
 
   def new
-      @cart = @current_cart
-      @select_address = Address.find(params[:address_id])
-      @order = Order.new
+    @cart = @current_cart
+    @select_address = Address.find(params[:address_id])
+    @order = Order.new
   end
 
   def create
-      @cart = @current_cart 
-      @order = Order.new
-      customer = Stripe::Customer.create({
+    @cart = @current_cart 
+    @order = Order.new
+
+    # Stripe Api customer create
+    customer = Stripe::Customer.create({
       email: params[:stripeEmail],
       source: params[:stripeToken],
       name: current_user.name
     })
-
+    
+    # Stripe Api payment create
     charge = Stripe::Charge.create({
       customer: customer.id,
       amount: (@current_cart.sub_total * 100).floor,
       description: "Dishes",
       currency: 'INR',
     })
-    #TODO: charge.paid or charge["paid"]
+
+    #If Payment success create Order
     if charge["paid"] == true
       @order = Order.new(
         user_id: current_user.id,
@@ -39,10 +43,9 @@ class OrdersController < ApplicationController
         order_status: 'Processed'      
       )
 
-      # @order = Order.new(order_params)
         @current_cart.line_items.each do |item|
-              @order.line_items << item
-              item.cart_id = nil
+            @order.line_items << item
+            item.cart_id = nil
         end
         @order.save    
         Cart.destroy(session[:cart_id])
@@ -55,11 +58,11 @@ class OrdersController < ApplicationController
     end
 
     def success
-        @payment = Order.last
+      @payment = Order.last
     end
 
     def show
-        @order = Order.find(params[:id])
+      @order = Order.find(params[:id])
     end
 
     def order_params

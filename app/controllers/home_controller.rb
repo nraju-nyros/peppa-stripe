@@ -71,26 +71,29 @@ class HomeController < ApplicationController
         end
       end 
     end
-      gon.locations = locations 
-      gon.restaurant = restaurant
+      
+    gon.locations = locations 
+    gon.restaurant = restaurant
       
 
-      # restaurant dishes count for map
-      restaurant_dish = []
-      restaurant.each do |k|
-        count =  k.dishes.count
-        restaurant_dish.push(count)
-      end
-      gon.restaurant_dish = restaurant_dish
+    # restaurant dishes count for map
+    restaurant_dish = []
+    restaurant.each do |k|
+      count =  k.dishes.count
+      restaurant_dish.push(count)
+    end
+    gon.restaurant_dish = restaurant_dish
 
 
-      # restaurant pictures for map
-      pictures = []
-      restaurant.each do |r|
-        r.pictures.each do |p|
-          pictures.push(p)
-        end
+    # restaurant pictures for map
+    pictures = []
+    restaurant.each do |r|
+      r.pictures.each do |p|
+        pictures.push(p)
       end
-      gon.pictures = pictures
+    end
+
+    gon.pictures = pictures
+  
   end
 end

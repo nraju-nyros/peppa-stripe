@@ -10,14 +10,14 @@ class RatingsController < ApplicationController
   end
 
   def new   
-     @rating = Rating.new
+    @rating = Rating.new
   end   
    
 
   def create 
     @dish = Dish.find(rating_params[:dish_id])
     if already_rated?
-      flash[:notice] = "You can't like more than once"
+      flash[:notice] = "You can't review more than once"
     else
       @rating = Rating.create(rating_params) 
       @rating.save 
