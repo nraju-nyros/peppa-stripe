@@ -1,0 +1,49 @@
+// Place all the styles related to the orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.orders_list{
+	width:75%;
+	margin: 0px auto;
+}
+
+.order_list_item{
+	margin-bottom: 12px;
+}
+.order_header{
+	background-color: #f9f9f9;
+  padding: 9px;
+  border: 1px solid #d7d7d7;
+  border-bottom: 0px;
+}
+
+.order_placed{
+	font-size: 13px;
+	color:#555;
+}
+
+.order_body{
+	border: 1px solid #d7d7d7;
+	padding: 10px;
+}
+
+.order_img{
+	height: 70px;
+	width: 70px;
+}
+
+.link{
+  color:#0d6a94;
+  font-size: 14px;	
+}
+
+.link:hover{
+  color: #c45500;
+  cursor: pointer;
+  border: none;
+  outline: none; 
+}
+
+
+
+
+

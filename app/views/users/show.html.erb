@@ -1,0 +1,41 @@
+<div class="container">
+	<%= render :partial => 'shared/nav' %>
+	<div style="margin-top: 100px;">
+			<h2> My Account </h2><br>
+			<div class="row no-gutters">
+				<div class="col-sm-12 col-md mr-md-3 account" style="background-color: #f2f2f2;">
+					<%= image_tag("user_orders.png", :class => 'order_img1')%>
+				  <%= link_to 'Your Orders', orders_path %>
+				</div>
+
+				<div class="col-sm-12 col-md mr-md-3 account" style="background-color: #f2f2f2;">
+					<%= image_tag("user_address.png", :class => 'order_img1')%>
+					<%= link_to 'Your Addresses', addresses_path %>
+				</div>
+
+				<div class="col-sm-12 col-md mr-md-3 account" style="background-color: #f2f2f2;">
+				  <%= image_tag("w.png", :class => 'order_w')%>
+				  <%= link_to 'Wishlist', wishlists_path %>
+				</div>				
+			</div>
+			<br>
+			<div class="col-sm-12 col-md mr-md-3 account" style="background-color: #f2f2f2;">
+				<%= image_tag("update_pwd.png", :class => 'order_img1')%>
+				<%= link_to 'Update Your Password', edit_user_registration_path() %>
+			</div>
+	</div>
+</div>
+
+
+<style type="text/css">
+	.account{	
+		padding: 70px;
+		text-align: center;
+	}
+	.order_img1{
+		width: 50px;
+	}
+	.order_w{
+		width: 26px;
+	}
+</style>

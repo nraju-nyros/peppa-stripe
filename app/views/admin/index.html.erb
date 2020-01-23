@@ -1,0 +1,20 @@
+<br><br>
+<div class="container" align="center">
+	<h1>
+    Admin 
+    <span style="float: right;">
+      <%= link_to('Logout', destroy_admin_session_path, method: :delete, :class => 'btn btn-danger btn-sm') %>
+      </span>
+  </h1><hr>
+	
+  <div class="row no-gutters" style="margin-top: 80px;">
+  	<div class="col-sm-12 col-md mr-md-3 admin_col">
+  			<%= link_to 'Restaurant & Dishes management' , admin_restaurants_path %><br/><br/>
+  	</div>
+  	<div class="col-sm-12 col-md mr-md-3 admin_col">
+  		<%= link_to 'Orders management' , admin_orders_path %><br/><br/>
+  	</div>
+	</div>
+</div>
+
+

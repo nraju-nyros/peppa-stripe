@@ -1,0 +1,73 @@
+<!-- Navigation -->
+<%= render :partial => 'shared/nav'%>
+<div class="container">
+	<div style="margin-top: 100px;">
+		<h2>Add new Address</h2><hr>
+		  <% id = request.query_parameters %>
+      <% x = id['x'] %>
+      
+      <% if(x=='1') %>
+		    <%= form_for @address, url:{action: :create, y:1} do |f| %>
+	      <div class="row">
+	        <div class="col-md-6">
+	        	  <%= f.label :full_name %>
+        		  <%= f.text_field :full_name , :class => 'form-control', :placeholder => 'Full name'%><br>
+			         <%= f.label :mobile %>
+			        <%= f.text_field :mobile , :class => 'form-control', :placeholder => 'mobile'%><br>
+			         <%= f.label :pincode %>
+			        <%= f.text_field :pincode , :class => 'form-control', :placeholder => 'pincode'%><br>
+			         <%= f.label :house_no %>
+			        <%= f.text_field :house_no , :class => 'form-control', :placeholder => 'house_no'%><br>
+        	</div>
+	        <div class="col-md-6">
+        	    <%= f.label :street %>
+        		  <%= f.text_field :street , :class => 'form-control', :placeholder => 'street'%><br>
+			         <%= f.label :landmark %>
+			        <%= f.text_field :landmark , :class => 'form-control', :placeholder => 'land_mark'%><br>
+			         <%= f.label :city %>
+			        <%= f.text_field :city , :class => 'form-control', :placeholder => 'city'%><br>
+			         <%= f.label :state %>
+			        <%= f.text_field :state , :class => 'form-control', :placeholder => 'state'%>
+			        <%= f.hidden_field :user_id, :value => current_user.id %>
+	        </div>
+	      </div>
+	            <%= f.submit "Save Address", :class => 'btn btn-success modal_btn' %>
+	            <%= link_to 'Back', :back, :class => 'btn btn-info'%>
+		    <% end %>
+	    <% end %>
+	    <% if(x=='2') %>
+		    <%= form_for @address, url:{action: :create, y:2} do |f| %>
+	      <div class="row">
+	        <div class="col-md-6">
+	        	  <%= f.label :full_name %>
+        		  <%= f.text_field :full_name , :class => 'form-control', :placeholder => 'Full name'%><br>
+			         <%= f.label :mobile %>
+			        <%= f.text_field :mobile , :class => 'form-control', :placeholder => 'mobile'%><br>
+			         <%= f.label :pincode %>
+			        <%= f.text_field :pincode , :class => 'form-control', :placeholder => 'pincode'%><br>
+			         <%= f.label :house_no %>
+			        <%= f.text_field :house_no , :class => 'form-control', :placeholder => 'house_no'%><br>
+        	</div>
+	        <div class="col-md-6">
+        	    <%= f.label :street %>
+        		  <%= f.text_field :street , :class => 'form-control', :placeholder => 'street'%><br>
+			         <%= f.label :landmark %>
+			        <%= f.text_field :landmark , :class => 'form-control', :placeholder => 'land_mark'%><br>
+			         <%= f.label :city %>
+			        <%= f.text_field :city , :class => 'form-control', :placeholder => 'city'%><br>
+			         <%= f.label :state %>
+			        <%= f.text_field :state , :class => 'form-control', :placeholder => 'state'%>
+			        <%= f.hidden_field :user_id, :value => current_user.id %>
+	        </div>
+	      </div>
+	            <%= f.submit "Save Address", :class => 'btn btn-success modal_btn' %>
+	            <%= link_to 'Back', :back, :class => 'btn btn-info'%>
+		    <% end %>
+	    <% end %>
+	</div>
+</div>
+
+
+
+
+
