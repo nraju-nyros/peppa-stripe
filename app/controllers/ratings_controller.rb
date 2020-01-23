@@ -1,7 +1,7 @@
 class RatingsController < ApplicationController
   before_action :authenticate_user!
   
-	def index
+  def index
     @rating = Rating.all
   end
   
@@ -61,31 +61,6 @@ class RatingsController < ApplicationController
      format.js
     end 
   end   
-
-
-  def upvote
-    @dish = Dish.find(params[:dish_id])
-    @rating = Rating.find(params[:id])
-    @rating.upvote_from current_user
-
-      respond_to do |format|
-        format.html { redirect_to request.referrer }
-        format.js {}
-      end
-
-  end
-
-   def downvote
-      @dish = Dish.find(params[:dish_id])
-      @rating =@dish.ratings.find(params[:id])
-      @rating.downvote_from current_user
-       respond_to do |format|
-        format.html { redirect_to request.referrer }
-        format.js {}
-      end
-
-  end
-
 
   private
   def rating_params   

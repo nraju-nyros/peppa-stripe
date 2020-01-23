@@ -1,7 +1,7 @@
 
 class AddressesController < ApplicationController
   before_action :authenticate_user!
-	def index
+  def index
     @addresses = Address.where(:user_id => current_user)
   end
 
@@ -16,7 +16,7 @@ class AddressesController < ApplicationController
   end   
    
   def create 
-  	@cart = @current_cart
+    @cart = @current_cart
     @address = Address.new(address_params)
     y = params[:y]   
     if @address.save

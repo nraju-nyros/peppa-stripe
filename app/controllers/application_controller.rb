@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   respond_to :html, :json
-	# def after_sign_out_path_for(resource_or_scope)
+  # def after_sign_out_path_for(resource_or_scope)
  #    new_admin_session_path
  #  end
 
