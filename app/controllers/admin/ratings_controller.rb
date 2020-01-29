@@ -16,7 +16,7 @@ class Admin::RatingsController < ApplicationController
   def create 
     @dish = Dish.find(params[:dish_id])
     @rating = @dish.ratings.create(rating_params) 
-    if @rating.save 
+    if @rating.save!
       respond_to do |format|
         format.html { redirect_to admin_restaurant_dishes_path, notice: 'rating succesfully created' }
       end   

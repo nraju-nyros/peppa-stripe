@@ -1,20 +1,32 @@
-<br><br>
-<div class="container" align="center">
-	<h1>
-    Admin 
-    <span style="float: right;">
-      <%= link_to('Logout', destroy_admin_session_path, method: :delete, :class => 'btn btn-danger btn-sm') %>
-    </span>
-  </h1><hr>
-	
-  <div class="row no-gutters" style="margin-top: 80px;">
+<div class="container" align="">
+  <%= render :partial => 'admin/shared/nav' %> 
+  <div class="row no-gutters" style="margin-top: 40px; text-align: center;">
   	<div class="col-sm-12 col-md mr-md-3 admin_col">
   			<%= link_to 'Restaurant & Dishes management' , admin_restaurants_path %><br/><br/>
   	</div>
   	<div class="col-sm-12 col-md mr-md-3 admin_col">
   		<%= link_to 'Orders management' , admin_orders_path %><br/><br/>
   	</div>
+
+    <div class="col-sm-12 col-md mr-md-3 admin_col">
+      <%= link_to 'Users' , admin_users_path %><br/><br/>
+    </div>
 	</div>
+  
+  <div class="row no-gutters" style="margin-top: 40px;" align="center">
+    <div class="col-sm-12 col-md mr-md-3 admin_col">
+      <h3>Total Restaurants</h3>
+      <%= Restaurant.all.count  %>
+    </div>
+    <div class="col-sm-12 col-md mr-md-3 admin_col">
+      <h3>Total orders</h3>
+      <%= Order.all.count  %>
+    </div>
+    <div class="col-sm-12 col-md mr-md-3 admin_col">
+      <h3>Registered users</h3>
+      <%= User.all.count %>
+    </div>
+  </div>
 </div>
 
 

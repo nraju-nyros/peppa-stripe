@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
   .orders_list{
-  	width:75%;
+  	width:92%;
   	margin: 0px auto;
   }
 
@@ -33,7 +33,19 @@
 
   .link{
     color:#0d6a94;
-    font-size: 14px;	
+    font-size: 16px;	
+  }
+
+  .link1{
+    color:#0d6a94;
+    font-size: 16px;  
+  }
+
+   .link1:hover{
+    color: #c45500;
+    cursor: pointer;
+    border: none;
+    outline: none; 
   }
 
   .link:hover{
@@ -44,18 +56,11 @@
   }
 
 
-  table, th, td {
+/*  table.order_success th, td {
     border: 1px solid black;
     border-collapse: collapse;
-  }
-  th, td {
-    padding: 5px;
-    text-align: left;    
-  }
-
-
-
-
+  }*/
+  
   .order_img{
   	height: 70px;
   	width: 70px;
@@ -73,14 +78,7 @@
       text-align: center;
       width: 136px;
   }
-  a:hover{
-      text-decoration: none;
-      color: inherit;
-      border: none;
-      outline: none;
-      
-      
-  }
+
 
   .track_card {
       z-index: 0;
@@ -195,6 +193,16 @@
       .icon-content {
           width: 50%
       }
+  }
+
+  .order_show_track{
+    padding-left:40px;
+    padding-right: 40px;
+    padding-top: 20px;
+  }
+  .order_show_track1{
+    padding-left:40px;
+    padding-right: 40px;
   }
 
 

@@ -31,7 +31,6 @@ gem 'turbolinks', '~> 5'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-
 gem 'jquery-turbolinks'
 
 
@@ -83,7 +82,9 @@ gem 'pry'
 gem 'carrierwave'
 
 #Pagination
-gem 'will_paginate-bootstrap'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap' 
+
 
 #google maps
 gem 'geocoder'
@@ -101,6 +102,9 @@ gem 'bcrypt-ruby'
 
 # payment gateway
 gem 'stripe'
+
+# Admin dashboard
+gem 'rails_admin'
 
 
 

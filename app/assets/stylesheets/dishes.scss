@@ -209,9 +209,6 @@
     color: #fff;
   }
 
-  a:hover { 
-    text-decoration-line: none; 
-  } 
 
 
   .food_sml_right {
@@ -272,9 +269,7 @@
     letter-spacing: 1px;
   }
 
-  a:hover {
-    text-decoration-line: none; 
-  } 
+ 
 
 
   .ratings_list {
@@ -290,16 +285,14 @@
     margin-top: 0px; 
   }
 
-  .previous, .next{
+  .previous_dish, .next_dish{
     text-decoration: none;
     display: inline-block;
     padding: 8px 16px;
   }
 
 
-  a:hover{
-    text-decoration: none;  
-  }
+
 
   .single_item a:hover{
     color: #ffffff;
@@ -309,7 +302,7 @@
     color: #5ac7f9;
   }
 
-  .previous {
+  .previous_dish {
    
     color: white;
     font-size: 30px;
@@ -319,7 +312,7 @@
     color: #d9d9d9;
   }
 
-  .next {
+  .next_dish {
     color: #f79b9b;
     font-size: 30px;
   }
@@ -420,9 +413,7 @@
     text-transform: capitalize
   }
 
-  a:hover{
-    text-decoration:none;
-  } 
+
   .top-left {
     position: absolute;
     top: 36px;

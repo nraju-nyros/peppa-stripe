@@ -55,11 +55,11 @@
     </div>
 
     <% unless  @dish.id == Dish.first.id   %>
-      <%= link_to '', Dish.get_previous_dish(@dish), :class => 'fa fa-chevron-left top-left previous round">&#8249;', :style => 'font-size:20px;'  %>
+      <%= link_to '', Dish.get_previous_dish(@dish), :class => 'fa fa-chevron-left top-left previous_dish round">&#8249;', :style => 'font-size:20px;'  %>
     <% end %>
 
     <% unless  @dish.id == Dish.last.id   %>
-      <%= link_to  '', Dish.get_next_dish(@dish), :class => 'fa fa-chevron-right top-right next round">&#8249;', :style => 'font-size:20px;' %>
+      <%= link_to  '', Dish.get_next_dish(@dish), :class => 'fa fa-chevron-right top-right next_dish round">&#8249;', :style => 'font-size:20px;' %>
     <% end %>
 
   </div>
@@ -79,7 +79,7 @@
       <div align="right">
         <%= link_to "Add to Cart", line_items_path(:dish_id =>  @dish.id), :method => :post, :class => 'btn btn-sm btn-success' %><br>
 
-        <span class="link more btn_outer">
+        <span class="more btn_outer">
           <span class="most_review"> All Reviews </span>
           <% if current_user.nil? %> 
             <%= link_to 'Write a Review', ratings_path, :class => 'load-more', :style => 'margin-left:100px;', method: :post %> 

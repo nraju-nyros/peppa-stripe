@@ -2,9 +2,11 @@
 <%= render :partial => 'shared/nav' %>
 <div class="container">
 	<div style="margin-top: 100px;">
-		<h3 style="margin-left: 15px;">Order Details</h3>
-		
-    <div class="container px-1 px-md-4 py-5 mx-auto">
+    <div style="margin-left: 25px">
+      <%= link_to 'Your Account', user_path(current_user), :class => 'link1'%>&nbsp;<i class="a-breadcrumb-divider">› </i><span><%= link_to 'Your Orders',orders_path ,:class => 'link1' %></span>&nbsp;<i class="a-breadcrumb-divider">› </i> <span class="">Order details</span><hr>
+    </div> 
+		<h3 style="margin-left: 25px;">Order Details</h3>
+    <div class="container px-1 px-md-4 mx-auto">
 	    <div class="track_img card track_card">
         <div class="row d-flex justify-content-between px-3 top">
           <div class="d-flex">
@@ -62,11 +64,11 @@
 	    </div>
     </div>
    
-    <div class="@order" id="order_<%=@order.id %>">
+    <div class="order_show_track" id="order_<%=@order.id %>">
 	    <div class="row" style="background-color: #f9f9f9;padding: 9px;border: 1px solid #d7d7d7; border-bottom: 0px;">
 	    	<div class="col-md-12">
 	    		<div class="Order_btn">
-	    			Payment Details
+	    			<b>Payment Details</b>
 	    		</div>
 	    	</div>
 	    </div>
@@ -77,7 +79,7 @@
 		      <p> <b> Payment id: </b> <%= @order.payment_id %> </p>
 		      <p> <b> Ordered on: </b> <%= @order.created_at.to_date %> </p>
 		      <p> <b> Transaction id: </b> <%= @order.transaction_id %> </p>
-		      <p><b>Total amount: </b><%= @order.amount %></p>
+		      <p><b>Total amount: </b>&#8377; <%= @order.amount %></p>
 	      </div>
 	      <div class="col-md-6">
 		      <h4>shipping address</h4>
@@ -92,32 +94,32 @@
       </div>
     </div><br>
 
-    <div class="@order" id="order_<%=@order.id %>">
+    <div class="order_show_track1" id="order_<%=@order.id %>">
 	    <div class="row" style="background-color: #f9f9f9;padding: 9px;border: 1px solid #d7d7d7; border-bottom: 0px;">
 	    	<div class="col-md-12">
 	    		<div class="Order_btn">
-	    			Products
+	    			<b>Dishes</b>
 	    		</div>
 	    	</div>
 	    </div>
 
       <div class="row" style="border: 1px solid #d7d7d7; padding: 15px;">
-				<div class="col-md-6">
-					<div>
-		        <% @order.line_items.each do |d| %>
-  		        <% d.dish.pictures.each do |p| %>
-  	            <%= image_tag(p.image_url, :class => 'order_img') %>
-  		        <% end %>
-		      </div>
-		      <div>
-  		        <span><%= d.dish.name %></span>
-  		        <span>&#8377; <%= d.dish.price %> &#x2715;</span>
-  		        <span><%= d.quantity %></span> <br><br>
-		        <% end %>
-		      </div>
-		    </div>
-		    <div class="col-md-6">
-
+				<% @order.line_items.each do |d| %>
+        <div class="col-md-4">
+          <div>
+            <% d.dish.pictures.each do |p| %>
+              <%= image_tag(p.image_url, :class => 'order_show_img') %>
+            <% end %>
+          </div>
+          <div>
+            <span><b><%= d.dish.name %></b></span><br>
+            <span>Price: &#8377;<%= d.dish.price %> &#x2715;</span>
+            <%= d.quantity %><br><br>
+          </div>
+        </div>
+        <% end %>
+        <div class="col-md-4">
+        
         </div>
       </div>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_22_115025) do
+ActiveRecord::Schema.define(version: 2020_01_27_094754) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "full_name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_01_22_115025) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
   end
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
@@ -38,17 +39,6 @@ ActiveRecord::Schema.define(version: 2020_01_22_115025) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "assemblies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "assemblies_parts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "assembly_id"
-    t.bigint "part_id"
-    t.index ["assembly_id"], name: "index_assemblies_parts_on_assembly_id"
-    t.index ["part_id"], name: "index_assemblies_parts_on_part_id"
-  end
-
   create_table "carts", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,14 +48,6 @@ ActiveRecord::Schema.define(version: 2020_01_22_115025) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "email"
-    t.string "message"
   end
 
   create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
@@ -141,10 +123,6 @@ ActiveRecord::Schema.define(version: 2020_01_22_115025) do
     t.string "invoice_id"
     t.integer "address_id"
     t.string "order_status"
-  end
-
-  create_table "parts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "part_name"
   end
 
   create_table "pictures", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|

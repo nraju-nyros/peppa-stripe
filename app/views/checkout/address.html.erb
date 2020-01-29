@@ -3,12 +3,12 @@
 <div class="container">
   <div style="margin-top: 100px;">
     <div style="margin-left:15px;">
-        <h3>Select Delivery Address</h3>
+      <h3>Select Delivery Address</h3>
     </div><br>
     
     <div class="row">
       <div class="col-md-8" >
-        <% find_address = current_user.addresses.count %>
+        <% find_address = current_user.addresses.where(status: 'active').count %>
         <% address1 = current_user.addresses.first %>
         <% @user_address.each do |a| %>
           <div class="col-md-6" style="margin-bottom: 15px;">
@@ -31,27 +31,10 @@
           <div id="myDIV" class="col-md-12">
             <p>ADD NEW ADDRESS</p>
             <%= form_for @address,:url => url_for(:controller => 'addresses', :action => 'create', y:2) do |f| %>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <%= f.text_field :full_name,:class => 'form-control',:placeholder => 'full_name'%><br>
-                  <%= f.text_field :mobile, :class => 'form-control', :placeholder => 'mobile'%><br>
-                  <%= f.text_field :pincode, :class => 'form-control', :placeholder => 'pincode'%><br>
-                  <%= f.text_field :house_no, :class => 'form-control', :placeholder => 'house_no'%><br>
-                </div>
-
-                <div class="col-md-6">
-                  <%= f.text_field :street, :class => 'form-control', :placeholder => 'street'%><br>
-                  <%= f.text_field :landmark,:class => 'form-control', :placeholder => 'land_mark'%><br>
-                  <%= f.text_field :city , :class => 'form-control', :placeholder => 'city'%><br>
-                  <%= f.text_field :state , :class => 'form-control', :placeholder => 'state'%>
-                  <%= f.hidden_field :user_id, :value => current_user.id %>
-                </div>
-              </div>
-
-              <%= f.submit "Save", :class => 'btn btn-success modal_btn' %>
+            <%= render :partial => 'addresses/form', locals: {f: f}%>
             <% end %>
           </div>
+          <%= render :partial => 'addresses/states_dropdown'%>
         <% end %>
 
         <% if (find_address != 0) %> 

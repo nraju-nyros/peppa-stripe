@@ -4,10 +4,10 @@
     <h2>Thanks, for you purchase!</h2><br>
     <h2 style="color:green">Your payment was successful</h2>
     <caption>Order details</caption>
-    <table style="width:50%">
+    <table style="width:50%" class="order_success table table-bordered table-hover">
       <tr>
         <th>Payed amount:</th>
-        <td><%= @payment.amount %></td>
+        <td>&#8377; <%= @payment.amount %></td>
       </tr>
       <tr>
         <th>Order id:</th>

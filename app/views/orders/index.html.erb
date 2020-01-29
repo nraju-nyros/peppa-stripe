@@ -4,7 +4,7 @@
   <% if (count_orders !=0) %>
     <div class="orders_list">
       <div style="margin-left: -15px">
-        <%= link_to 'Your Account', user_path(current_user)%> &nbsp;<i class="a-breadcrumb-divider">›</i><span> Your Orders </span><hr>
+        <%= link_to 'Your Account', user_path(current_user), :class => 'link1'%> &nbsp;<i class="a-breadcrumb-divider">›</i><span> Your Orders </span><hr>
       </div> 
     
       <% @orders.each do |order| %>
@@ -13,16 +13,16 @@
         <div class="row order_header" style="">
           <div class="col-md-3">
             <div class="order_placed">
-              Order Placed <br><b><%= order.created_at.strftime("%B %d, %Y")%></b>  
+              Order date <br><b><%= order.created_at.strftime("%B, %d, %Y")%></b>  
             </div>
           </div>
           <div class="col-md-3">
             <div class="order_placed">
-              TOTAL <br><b><b>&#8377; <%= order.amount %>.00</b></b>  
+              TOTAL <br><b><b>&#8377; <%= order.amount %></b></b>  
             </div>
           </div>
           <div class="col-md-6" align="right">
-            <span> <%=link_to "Track order", order_path(order),:class =>"link" %> </span>
+            <span> <i class="fa fa-map-marker"></i> <%=link_to "Track order", order_path(order),:class =>"link" %> </span>
           </div>
         </div>
 
@@ -33,15 +33,14 @@
                 <%= image_tag(p.image_url, :class => 'order_img') %>
               <% end %>
               <%= d.dish.name %>
-              <%= d.dish.price %> &#x2715;
+              &#8377; <%= d.dish.price %> &#x2715;
               <%= d.quantity %><br><br>
             <% end %>
           </div>
           <div class="col-md-7">
-            <p> <b> Payment id: </b> <%= order.payment_id %> </p>
-            <p> <b> Ordered on: </b> <%= order.created_at.to_date %> </p>
+            <p> <b> Ordered on: </b> <%= order.created_at.strftime("%B, %d, %Y")%> </p>
             <p> <b> Transaction id: </b> <%= order.transaction_id %> </p>
-            <p><b>Total amount paid: </b><%= order.amount %></p>
+            <p><b>Total amount paid: </b>&#8377; <%= order.amount %></p>
           </div>
         </div>
 

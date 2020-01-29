@@ -8,7 +8,7 @@ class CheckoutController < ApplicationController
   def address
     @cart = @current_cart 
     @address = Address.new
-    @user_address = Address.where(:user_id => current_user)
+    @user_address = Address.where(:user_id => current_user, :status => 'active')
   end
 
   def payment

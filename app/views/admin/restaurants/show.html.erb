@@ -1,4 +1,8 @@
-<div class="container" align="center"><br/><br/>
+<div class="container">
+   <%= render :partial => 'admin/shared/nav'%>
+   <div><br>
+     <h2> <b><%= @restaurant.name %> Restaurant</b> </h2> <br>
+   </div>
   <div class="row">
     <div class="col-md-4">
       <% @restaurant.pictures.each do|p|%>
@@ -34,7 +38,7 @@
            <%= @restaurant.dishes.pluck(:name).join(',') %>
       </div><br/><br/>
     </div>
-  </div><br>
+  </div>
   
   <div>
     <%= link_to 'Back to All restaurants',admin_restaurants_path,

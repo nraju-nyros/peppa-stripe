@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   
+  devise_for :admin, :controllers =>{
+    :sessions => 'admin/sessions'
+  }
+
+  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root "home#index"
 
   devise_for :users, :controllers =>{
@@ -11,11 +16,10 @@ Rails.application.routes.draw do
     :omniauth_callbacks => 'users/omniauth_callbacks'
   }
 
-  devise_for :admin, :controllers =>{
-    :sessions => 'admin/sessions'
-  }
-
+  
+  # Admin panel custom
   resources :admin ,:only => [:index]
+  get 'admin/dashboard' => 'admin#dashboard'
 
   #Admin panel Dishes enter through restaurants
   namespace :admin do
@@ -27,6 +31,7 @@ Rails.application.routes.draw do
     resources :locations
 
     resources :orders
+    resources :users
   end
 
 
@@ -41,6 +46,8 @@ Rails.application.routes.draw do
   resources :users
   resources :orders
   resources :addresses
+
+  post 'addresses/:id/deactivate' => 'addresses#deactivate', as: 'deactivate_address'
 
   # search method from homepage
   get '/search' => 'home#search', :as => 'search_page'
@@ -69,6 +76,8 @@ Rails.application.routes.draw do
   get 'checkout/cart' => 'checkout#cart'
   get 'checkout/address' => 'checkout#address'
   get 'checkout/payment' => 'checkout#payment'
+
+
 
 
 end

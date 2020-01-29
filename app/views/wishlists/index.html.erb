@@ -7,9 +7,8 @@
         <div class="row cart_list">
           <div class="col-md-12 cart_items">
               <div class="hm_featured_books_title">
-                  <div class="h5">My Wishlist (<%= current_user.wishlists.count %>)</div>
+                <div class="h5">My Wishlist (<%= current_user.wishlists.count %>)</div>
               </div>
-
               <% @wishlists.each do |wishlist| %>
                 <div class="cart_item">
                   <div class="" id="leftbox">
@@ -25,7 +24,24 @@
                   </div>
                   <div class="" id="rightbox">
                       <%= link_to "Add to cart", dish_add_cart_path(wishlist.dish, wishlist), :method => :post, :class => 'btn btn-sm btn-info'%> &nbsp;&nbsp;
-                      <%= link_to "Remove", dish_wishlist_path(wishlist.dish, wishlist), :class => 'btn btn-sm btn-danger', method: :delete, data:{confirm: "Are you sure?"} %> 
+                      <%= link_to 'Remove', '#',{:class=>"btn btn-sm btn-danger", "data-toggle"=>"modal", "data-target" => "#delete-#{wishlist.id}"} %><br><br><br>
+                        <div class="modal fade  " id="delete-<%= wishlist.id %>">
+                          <div class="modal-dialog ">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                               <h5><%= wishlist.dish.name %></h5>
+                              </div>
+                              <div class="modal-body">
+                               <p>Are you sure to remove this Item?</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">  Cancel </button>
+                                <%= link_to 'Delete',dish_wishlist_path(wishlist.dish, wishlist), method: :delete, :class => 'btn btn-danger btn-sm' %>
+                               
+                              </div>
+                            </div>
+                          </div>
+                        </div> 
                   </div>  
                 </div>
               <% end %>

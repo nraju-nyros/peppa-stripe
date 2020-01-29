@@ -2,18 +2,53 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-	.form {
-		margin: 0 auto;
-		width: 450px;
-		background-color: white;
-		padding-left: 0px;
-    padding-top: 30px;
-    padding-bottom: 50px;
-	}
+ /* .img{
+    height:50px;
+    width:50px;
+  }*/
+  .new_admin{
+    margin-top: 20px;
+    padding-bottom: 30px;
+  }
 
-	.form input{
-		margin-right: 180px;
-	}
+/* admin/restaurants index page*/
+  .modal-img{
+    height: 350px;
+    width: 450px;
+  }
+
+/* admin/restaurant/new & admin/restaurant/edit*/
+  .restaurant_form {
+    margin: 0 auto;
+    width: 450px;
+    background-color: white;
+    padding-left: 0px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+  }
+
+  .restaurant_form label{
+    text-align: right;
+    float: left;
+  }
+
+  .restaurant_form input{
+    margin-right: 180px;
+  }
+
+  /* admin/restaurant show page*/
+  .img_restaurant{
+    height:300px;
+    width:300px;
+  }
+
+  .no_padding_right {
+      padding-right: 0;
+  }
+
+  .no_padding_left {
+      padding-left: 0;
+  }
 
 	.err {
   	color: red;
@@ -29,58 +64,122 @@
     width:356px;
   }
 
-  .col-sm-12{
-    padding-left: 0px;
-    padding-right: 0px;
-  }
+  /*Pagination*/
+  .pagination>li>span:hover {
+    z-index: 2;
+    color: #23527c;
+    background-color: #eee;
+    border-color: #ddd;
+ }
+
+ .pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+  
+    border-radius: 4px;
+}
+.pagination>li {
+    display: inline;
+}
+
+.pagination>li:first-child>a, .pagination>li:first-child>span {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.pagination>.active>span, .pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
 
   
-  #user_remember_me{  
-    margin-right:0px;
-  }
-  .forgot_pwd{
-    padding-left: 90px;
-  }
-
-  a:hover{
-    text-decoration-line: none;
-  }
-
+/*Admin order show page */
   .admin_col{
-  	background-color: #f5f4f4;
+    background-color: #f5f4f4;
     padding: 50px;
     padding-top: 70px;
   }
 
-/*Admin order show page */
+  th, td {
+    padding: 5px;
+    text-align: left;    
+  }
+  .order_img{
+    height: 70px;
+    width: 70px;
+  }
 
-th, td {
-  padding: 5px;
-  text-align: left;    
-}
-.order_img{
-  height: 70px;
-  width: 70px;
-}
+  .order_link {
+    background: #2874f0;
+    color: #fff;
+    box-shadow: none;
+    border: 1px solid #2874f0;
+    padding: 6px 10px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+    width: 136px;
+  }
 
-.order_link {
-  background: #2874f0;
-  color: #fff;
-  box-shadow: none;
-  border: 1px solid #2874f0;
-  padding: 6px 10px;
-  border-radius: 2px;
-  cursor: pointer;
+
+  .order_tracking {
+    width: 450px;
+    margin: 100px auto 20px;
+    height: 200px;
+    background-color: #f5f5f5;
+    text-align: center;
+    padding-top: 25px;  
+  }
+
+
+  .menublock {
+  float: right;
+}
+.link_back{
+  width: 150px;
+  margin-left:43%;
   text-align: center;
-  width: 136px;
+  display: inline-block;
+  margin-top: 4px;
+}
+.btn_back{
+   background-color: #337ab7;
 }
 
+.btn_back:hover{
+   background-color: #337ab7;
+}
 
-.order_tracking {
-  width: 450px;
-  margin: 100px auto 20px;
+.order_show_row{
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+.order_show_img{
   height: 200px;
-  background-color: #f5f5f5;
-  text-align: center;
-  padding-top: 25px;  
+  width: 200px;
 }
+
+
+
+/*Admin dashboard navigation*/
+
+
+
+
+
+

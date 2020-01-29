@@ -1,5 +1,6 @@
 <div class="container"  >
-  <div align="center" class="form"><br>
+  <%= render :partial => 'admin/shared/nav'%>
+  <div align="center" class="restaurant_form u-dimension-2">
     <h3>Update restaurant</h3>
     <%= form_for @restaurant, url: {action: :update} do |f| %>
       <div class="form-group">
@@ -62,4 +63,4 @@
     <% end %>
 
   </div>
-</div>
+</div><br><br>

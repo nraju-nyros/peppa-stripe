@@ -39,7 +39,7 @@ class WishlistsController < ApplicationController
       @line_item.dish = chosen_product
     end
     # Save and redirect to cart show path
-    @line_item.save!
+    @line_item.save
     @wishlist.destroy
     redirect_to checkout_cart_path  
   end

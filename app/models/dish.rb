@@ -33,5 +33,7 @@ class Dish < ApplicationRecord
 
     def self.get_next_dish(current_dish)
       Dish.where("dishes.id > ? ", current_dish.id).order('created_at asc').first
-    end  
+    end 
+
+     
 end

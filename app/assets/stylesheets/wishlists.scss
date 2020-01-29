@@ -46,5 +46,13 @@
   }
 
   .wishlistEmpty-button:hover{
-  	text-decoration:none;
+    border:solid 1px #3466E8;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 14.5px 51px;
+    color: #3466E8;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
   }

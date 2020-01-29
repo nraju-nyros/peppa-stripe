@@ -24,12 +24,14 @@ class ApplicationController < ActionController::Base
   end
  
 
-  def after_sign_out_path_for(admin)
-    new_admin_session_path
-  end
-
-  def after_sign_out_path_for(user)
-    root_path
+  def after_sign_out_path_for(resource_or_scope)
+    if resource_or_scope == :user
+      new_user_session_path
+    elsif resource_or_scope == :admin
+      new_admin_session_path
+    else
+      root_path
+    end
   end
 
   def after_sign_in_path_for(resource_or_scope)
@@ -42,7 +44,7 @@ class ApplicationController < ActionController::Base
 
 
   protect_from_forgery with: :exception   
-     
+  before_action :current_cart  
   helper_method :current_user  
   
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -53,23 +55,22 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 
- 
-  before_action :current_cart
-    def current_cart
-      if session[:cart_id]
-        cart = Cart.find_by(:id => session[:cart_id])
-        if cart.present?
-          @current_cart = cart
-        else
-          session[:cart_id] = nil
-        end
-      end
-
-      if session[:cart_id] == nil
-        @current_cart = Cart.create
-        session[:cart_id] = @current_cart.id
+  private
+  def current_cart
+    if session[:cart_id]
+      cart = Cart.find_by(:id => session[:cart_id])
+      if cart.present?
+        @current_cart = cart
+      else
+        session[:cart_id] = nil
       end
     end
+
+    if session[:cart_id] == nil
+      @current_cart = Cart.create
+      session[:cart_id] = @current_cart.id
+    end
+  end
 
  
 end

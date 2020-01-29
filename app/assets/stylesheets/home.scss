@@ -236,13 +236,25 @@
     margin: 0 auto;
     padding: 11px 35px;
     position: relative;
-    z-index: 999
+    z-index: 999;
   }
 
   .btn_outer a:hover {
     text-decoration: none;
     color: #fff;
     border-color: #f7aa97;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 3px;
+    border: solid 1px #d8d8d8;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 11px 35px;
+    position: relative;
+    z-index: 999;
   }
 
   .btn_outer a::before {
@@ -481,9 +493,7 @@
 
   }
 
-  a:hover { 
-            text-decoration-line: none; 
-        } 
+ 
 
   #search_list .dish_btm ul li a {
     background: url(/assets/location1.png) no-repeat;

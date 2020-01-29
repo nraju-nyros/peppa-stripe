@@ -1,9 +1,9 @@
-<div class="container"  >
-  <div align="center" class="form"><br>
-    <h2><%= @restaurant.name%></h2>
-    <h3>Edit dish</h3>
-
+<div class="container">
+  <%= render :partial => 'admin/shared/nav' %>
+  <div align="center" class="restaurant_form u-dimension-2">
     <%= form_for @dish, url: {action: :update} do |f| %>
+      <h2><%= @restaurant.name%></h2>
+      <h3>Edit dish</h3>
       <div class="form-group">
         <div class="col-sm-12">    
           <label>Name </label>
@@ -51,4 +51,4 @@
     <% end %>
     
   </div>
-</div>
+</div><br><br>

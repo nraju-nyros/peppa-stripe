@@ -1,36 +1,21 @@
-<br>
 <div class="container" >
-  <nav class="navbar navbar-expand-sm   navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="/admin">Admin panel <span class="sr-only">(current)</span></a>
-        </li>
-      </ul>
-      <div>
-        <%= link_to('Logout', destroy_admin_session_path, method: :delete, :class => 'btn btn-danger btn-sm') %>  
-      </div>
-    </div>
-  </nav>
+  <%= render :partial => 'admin/shared/nav' %>
   <table  class="table " >   
     <thead class="thead-light">
       <h2><%= @restaurant.name %></h2>
       <%= link_to 'Add dish', new_admin_restaurant_dish_path(@restaurant), :class => 'btn add btn-sm btn-success'%><br><br>
       <tr> 
-        <th>id</th>   
-        <th>dish name</th> 
-        <th>Dish image</th>
+        <th>Dish</th> 
+        <th>Image</th>
         <th>Price</th>
         <th>Avg Rating</th>
-        <th>Count </th>
-        <th>Add Rating</th>
+        <th>Total Reviews </th>
         <th>Actions</th> 
       </tr>   
     </thead>   
     <tbody>  
       <% @dishes.each do|d|%>
         <tr>
-          <td><%= d.id %></td>
           <td><%= d.name %></td>
           <td><% d.pictures.each do|p|%>
               <%= link_to image_tag(p.image_url.to_s ,:class => 'img'),'#',
@@ -53,35 +38,37 @@
           <td><%= d.price %></td>
           <td><%= d.ratings.average(:rating) %></td>
           <td><%= d.ratings.count(:rating) %></td>
-          <td><%= link_to 'Add rating', new_admin_restaurant_dish_rating_path(@restaurant,d),
-                :class => 'btn btn-sm btn-info'%></td>
           <td><%= link_to "Edit", edit_admin_restaurant_dish_path(@restaurant,d),:class => 'glyphicon glyphicon-edit btn btn-sm btn-success'%>
               <%= link_to 'Delete', '#',{:class=>"btn btn-danger btn-sm", "data-toggle"=>"modal", "data-target" => "#delete-#{d.id}"} %>
                 <div class="modal fade  " id="delete-<%= d.id %>">
                   <div class="modal-dialog ">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h3>Dish Delete ?</h3>
+                        <h3><%= d.name %></h3>
                       </div>
                       <div class="modal-body">
-                        <p>Are you sure to delete this Restaurant?</p>
+                        <p>Are you sure you wish to delete?</p>
                       </div>
                       
                       <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
                         <%= link_to 'Delete',admin_restaurant_dish_path(@restaurant,d), method: :delete, :class => 'btn btn-danger btn-sm' %>
-                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       </div>
 
                     </div>
                   </div>
                 </div></td>
-        </tr>
+          </tr>
       <% end %>   
     </tbody>   
   </table>
-  <p align="center"><%= link_to 'Back to Restaurants', admin_restaurants_path, :class => 'btn btn-sm btn-info'%></p> 
-</div>  
-
+  <div>
+    <div style="" class="link_back">
+      <%= link_to 'Back', admin_restaurants_path, :class => 'btn btn-info btn-block btn_back'%>
+    </div>
+    <%= will_paginate @dishes, renderer: BootstrapPagination::Rails, :class => 'menublock' %>
+  </div>      
+</div>
 
 
   
