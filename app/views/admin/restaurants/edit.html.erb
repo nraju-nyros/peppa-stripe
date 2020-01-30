@@ -1,66 +1,71 @@
-<div class="container"  >
+<div class="container">
   <%= render :partial => 'admin/shared/nav'%>
-  <div align="center" class="restaurant_form u-dimension-2">
-    <h3>Update restaurant</h3>
-    <%= form_for @restaurant, url: {action: :update} do |f| %>
-      <div class="form-group">
-        <div class="col-sm-12">    
-          <label>Name </label>
-          <span class="err"><%= @restaurant.errors[:name].join('. ') %></span><br/>
-            <%= f.text_field :name , :class => 'form-control', :placeholder => 'Name'%>
+  <div>
+    <h2>Update Restaurant</h2>
+      <%= form_for @restaurant, url: {action: :update} do |f| %>
+      <div class="form-row">
+        <div class="col-md-6 res_new">
+          <%= f.label :name %>
+           <span class="err"><%= @restaurant.errors[:name].join('. ') %></span><br/>
+          <%= f.text_field :name , :class => 'form-control', :placeholder => 'Name',:maxlength => 30 %>
         </div>
-      </div>
-         
-      <div class="form-group">
-        <div class="col-sm-12"> 
-          <label>Email </label>
+        <div class="col-md-6 res_new">
+          <%= f.label :email %>
            <span class="err"><%= @restaurant.errors[:email].join('. ') %></span><br/>
-          <%= f.text_field :email, :class => 'form-control', :placeholder => 'Email'  %>
+          <%= f.text_field :email , :class => 'form-control', :placeholder => 'Email' %>
         </div>
-      </div>
-          
-      <div class="form-group"> 
-        <div class="col-sm-12"> 
-         <label >Mobile </label>
-          <span class="err"><%= @restaurant.errors[:mobile].join('. ') %></span><br/>
-           <%= f.text_field :phone, :class => 'form-control', :placeholder => 'Mobile'  %>
+        <div class="col-md-6 res_new">
+          <%= f.label :phone %>
+           <span class="err"><%= @restaurant.errors[:phone].join('. ') %></span><br/>
+          <%= f.text_field :phone , :class => 'form-control', :placeholder => 'phone', :maxlength => 10 %>
         </div>
-      </div>
+        <div class="col-md-6 res_new">
+            <%= f.label :image %>
+            <%= f.fields_for :pictures do |image_upload| %> 
+              <%= image_upload.file_field :image, class: "form-control file"  %>
+            <% end %>  
+            <!-- <span class ="upload-preview"> <img /></span> -->
+        </div>
+         <%= f.fields_for :locations do |l| %> 
+            <div class="col-md-4 res_new">
+              <%= f.label :state %>
+              <%= l.text_field :state, class: "form-control", :placeholder => 'state'  %>  
+            </div>
 
-      <div class="form-group">
-        <div class="col-sm-12"> 
-          <label> Location</label>
-          <%= f.fields_for :locations do |l| %> 
-            <%= l.text_field :street, class: "form-control", :placeholder => 'Location'  %>
-            <%= l.text_field :city, class: "form-control", :placeholder => 'city'  %>
-            <%= l.hidden_field :state, value: 'Andhra pradesh'%>
-            <%= l.hidden_field :country, value: 'india'%>
-            <%= l.hidden_field :pincode, value: 533001 %>
-          <% end %>
-        </div>
-      </div>
+            <div class="col-md-4 res_new">
+              <%= f.label :city %>
+              <%= l.text_field :city, class: "form-control", :placeholder => 'city'  %>  
+            </div>
+            
+             <div class="col-md-4 res_new">
+              <%= f.label :pincode %>
+              <%= l.text_field :pincode, class: "form-control", :maxlength => 6, :placeholder => 'pincode'  %>  
+            </div>
 
-      <div class="form-group">
-        <div class="col-sm-12"> 
-          <label>Upload Picture</label>
-          <%= f.fields_for :pictures do |image_upload| %> 
-            <%= image_upload.file_field :image, class: "form-control"  %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class= "form-group" >
-        <div class="col-sm-12">
-          <%= f.submit "Save",class: "btn btn-block btn-md btn-primary " %>
-        </div>
-      </div>
-
-      <div class= "form-group" >
-        <div class="col-sm-12">
-          <%= link_to 'Back All restaurants',admin_restaurants_path,:class => "btn btn-sm btn-info "  %>
-        </div>
-      </div>
-    <% end %>
-
+            <div class="col-md-4 res_new">
+                <%= f.label :street %>
+                <%= l.text_field :street, class: "form-control", :placeholder => 'street'  %>
+            </div>
+            
+            <div class="col-md-4 res_new">
+              <%= f.label :latitude %>
+              <%= l.text_field :latitude, class: "form-control", :placeholder => 'latitude'  %>  
+            </div>
+            <div class="col-md-4 res_new">
+              <%= f.label :longitude %>
+              <%= l.text_field :longitude, class: "form-control", :placeholder => 'longitude'  %>  
+            </div>
+              <%= l.hidden_field :country %>
+              <%= l.hidden_field :state, :id => 'get_state1' %>
+              <%= l.hidden_field :city, :id => 'get_city1' %>
+         <% end %>
+        
+    
+      </div><br>
+      <%= link_to 'Back', admin_restaurants_path, :class => 'btn btn-info'%>
+      <%= f.submit "Save", :class => 'btn btn-success modal_btn restaurant_update' %>
+      <% end %>
   </div>
-</div><br><br>
+</div>
+
+

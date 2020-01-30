@@ -1,50 +1,54 @@
 <div class="container">
   <%= render :partial => 'admin/shared/nav' %>
   <div align="center" class="restaurant_form u-dimension-2">
+    <h2><%= @restaurant.name%></h2>
+    <h3>Edit dish</h3>
     <%= form_for @dish, url: {action: :update} do |f| %>
-      <h2><%= @restaurant.name%></h2>
-      <h3>Edit dish</h3>
-      <div class="form-group">
-        <div class="col-sm-12">    
+      <div class="form-group dish_field">
+        <div class="col-sm-12 dish_column">    
           <label>Name </label>
           <span class="err"><%= @dish.errors[:name].join('. ') %></span><br/>
-          <%= f.text_field :name , :class => 'form-control', :placeholder => 'Name'%>
+            <%= f.text_field :name , :class => 'form-control', :placeholder => 'Name'%>
         </div>
       </div>
        
-      <div class="form-group">
-        <div class="col-sm-12"> 
+      <div class="form-group dish_field">
+        <div class="col-sm-12 dish_column">    
           <label>Price </label>
-          <span class="err"><%= @dish.errors[:price].join('. ') %></span><br/>
-          <%= f.text_field :price, :class => 'form-control', :placeholder => 'Email'  %>
-        </div>
-      </div>
-        
-      <div class="form-group">
-        <div class="col-sm-12">    
-          <label>Category </label>
-          <span class="err"><%= @dish.errors[:price].join('. ') %></span><br/>
-          <%= f.select( :category_id, options_from_collection_for_select(Category.all, "id", "name"), {}, {:class => 'form-control'}) %>        
+           <span class="err"><%= @dish.errors[:price].join('. ') %></span><br/>
+          <%= f.text_field :price, :class => 'form-control', :placeholder => 'Price'  %>
         </div>
       </div>
 
-      <div class="form-group">
-        <div class="col-sm-12"> 
+      <div class="form-group dish_field">
+        <div class="col-sm-12 dish_column">    
           <label>Upload Picture</label>
-            <%= f.fields_for :pictures do |image_upload| %> 
-              <%= image_upload.file_field :image, class: "form-control"  %>
+            <%= f.fields_for :pictures do |p| %> 
+              <%= p.file_field :image, class: "form-control"  %>
+                <% if p.object.image %>
+                  <p id="dish_image" style="display: none;">
+                    <%= p.object.image.file.filename %>
+                    </p>
+                <% end %>
             <% end %>
         </div>
       </div>
 
-      <div class= "form-group" >
-        <div class="col-sm-12">
-          <%= f.submit "Save",class: "btn btn-block btn-md btn-primary " %>
+      <div class="form-group dish_field">
+        <div class="col-sm-12 dish_column">    
+          <label>Category </label>
+          <%= f.select( :category_id, options_from_collection_for_select(Category.all, "id", "name",f.object.category_id), {:prompt => 'select category'}, {:class => 'form-control'}) %>   
         </div>
       </div>
 
       <div class= "form-group" >
-        <div class="col-sm-12">
+        <div class="col-sm-12">    
+          <%= f.submit "Save",class: "btn btn-block btn-primary btn-md dish_edit" %> 
+        </div>
+      </div>
+
+      <div class= "form-group" >
+        <div class="col-sm-12">    
           <%= link_to 'Back to dishes',admin_restaurant_dishes_path,:class => "btn btn-sm btn-info " %> 
         </div>
       </div>
@@ -52,3 +56,6 @@
     
   </div>
 </div><br><br>
+
+
+

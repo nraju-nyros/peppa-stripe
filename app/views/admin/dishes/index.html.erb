@@ -35,7 +35,7 @@
                 </div>
               </div>
               <% end %></td>
-          <td><%= d.price %></td>
+          <td>&#8377; <%= d.price %></td>
           <td><%= d.ratings.average(:rating) %></td>
           <td><%= d.ratings.count(:rating) %></td>
           <td><%= link_to "Edit", edit_admin_restaurant_dish_path(@restaurant,d),:class => 'glyphicon glyphicon-edit btn btn-sm btn-success'%>
@@ -64,7 +64,7 @@
   </table>
   <div>
     <div style="" class="link_back">
-      <%= link_to 'Back', admin_restaurants_path, :class => 'btn btn-info btn-block btn_back'%>
+      <%= link_to 'Back', admin_restaurants_path, :class => 'btn btn-info btn-block'%>
     </div>
     <%= will_paginate @dishes, renderer: BootstrapPagination::Rails, :class => 'menublock' %>
   </div>      

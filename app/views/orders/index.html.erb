@@ -38,8 +38,8 @@
             <% end %>
           </div>
           <div class="col-md-7">
+            <p> <b> Order id: </b> <%= order.transaction_id %> </p>
             <p> <b> Ordered on: </b> <%= order.created_at.strftime("%B, %d, %Y")%> </p>
-            <p> <b> Transaction id: </b> <%= order.transaction_id %> </p>
             <p><b>Total amount paid: </b>&#8377; <%= order.amount %></p>
           </div>
         </div>

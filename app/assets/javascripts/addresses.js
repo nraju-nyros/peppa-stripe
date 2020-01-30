@@ -7,7 +7,7 @@ $(document).ready(function(){
     }, "Letters only please");
     jQuery.validator.addMethod("numeric", function(value, element) {
       return this.optional(element) || /^[0-9]+$/.test(value);
-    }, "numbers only please"); 
+    }, "Numbers only please"); 
      
       $(".new_address").validate({
         errorPlacement: function(){
@@ -105,8 +105,6 @@ $(document).ready(function(){
       stateSel = document.getElementById("address_state"),
       citySel = document.getElementById("address_city");
 
-      
-
       for (var country in stateObject) {
         countySel.options[countySel.options.length] = new Option(country, country);
       }
@@ -159,10 +157,6 @@ $(document).ready(function(){
           console.log(input_city)
           $('input[name="address[city]"]').val(input_city);
         });
-
-
-
-
     }
 
 

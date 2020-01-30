@@ -6,10 +6,12 @@ class Restaurant < ApplicationRecord
     
     # polymorphic association for pictures
     has_many :pictures, :as => :imageble, :dependent => :destroy
+    validates_associated :pictures
     accepts_nested_attributes_for :pictures
 
 
     validates_associated :locations
+
 
     validates_presence_of :name,message:"can't be empty"
     validates_presence_of :phone, message:"can't be empty", :presence => true,:numericality => true
