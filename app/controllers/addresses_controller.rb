@@ -70,10 +70,32 @@ class AddressesController < ApplicationController
 
   def deactivate
     a = Address.find(params[:id])
-    a.update_attributes(:status => 'deactive')
-      respond_to do |format|
-          format.html { redirect_to addresses_path, notice: 'Address succesfully deleted' }
+     y = params[:y]
+    if (a.orders.count != 0)
+      a.update_attributes(:status => 'deactive')
+      if params[:y] == '1'
+        respond_to do |format|
+          format.html { redirect_to addresses_path}
+        end
       end
+      if params[:y] == '2'
+        respond_to do |format|
+          format.html { redirect_to checkout_address_path}
+        end
+      end
+    else
+      a.destroy
+      if params[:y] == '1'
+        respond_to do |format|
+          format.html { redirect_to addresses_path}
+        end
+      end
+      if params[:y] == '2'
+        respond_to do |format|
+          format.html { redirect_to checkout_address_path}
+        end
+      end
+    end
   end  
 
   private

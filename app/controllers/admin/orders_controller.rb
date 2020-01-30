@@ -1,7 +1,7 @@
 class Admin::OrdersController < ApplicationController
   before_action :authenticate_admin!
 	def index
-    @orders = Order.all.order(created_at: :asc).paginate(page:  params[:page], per_page: 4)
+    @orders = Order.all.order(created_at: :asc).paginate(page:  params[:page], per_page: 5)
       respond_to do |format|
         format.html
         format.js

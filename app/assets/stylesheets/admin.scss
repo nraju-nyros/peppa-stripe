@@ -174,9 +174,31 @@
   width: 200px;
 }
 
-
-
 /*Admin dashboard navigation*/
+
+/* Admin restaurant new form validation*/
+
+  .error{
+    border:1px solid #de6565;
+    color: #ca3838;
+  }
+
+  label{
+    border:none !important;
+  }
+
+  .res_new{
+    height: 100px !important;
+    margin-bottom: 0px !important;
+  }
+/* Admin dish new form validation*/
+  .dish_column{
+    height: 90px;
+  }
+  .dish_field{
+    margin-bottom:8px !important;
+  }
+
 
 
 

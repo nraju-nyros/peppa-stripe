@@ -21,8 +21,30 @@
               <span><%= a.city %>,<%= a.pincode %></span><br>
               <span><%= a.state %></span><br>
               <hr>
-              <%= link_to 'Edit', edit_address_path(a, x:2)%>&nbsp;&nbsp;
-              <%= link_to 'Delete', address_path(a), method: :delete, data: {confirm: 'Are you sure?'}%><br><br>
+              <%= link_to 'Edit', edit_address_path(a, x:2), :class=>"link" %>&nbsp;&nbsp;
+            
+              
+               <%= link_to 'Delete', '#',{:class=>"link", "data-toggle"=>"modal", "data-target" => "#delete-#{a.id}"} %><br><br><br>
+                <div class="modal fade  " id="delete-<%= a.id %>">
+                  <div class="modal-dialog ">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5>Delete ?</h5>
+                      </div>
+
+                      <div class="modal-body">
+                       <p>Are you sure to remove this address?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">  Cancel </button>
+                        <%= link_to 'Delete',deactivate_address_path(a, y:2), method: :post, :class => 'btn btn-danger btn-sm' %>
+                       
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+
+
             </div>
           </div>
         <% end %>

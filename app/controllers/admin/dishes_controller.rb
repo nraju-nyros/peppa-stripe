@@ -32,7 +32,8 @@ class Admin::DishesController < ApplicationController
 
   def edit 
     @restaurant = Restaurant.find(params[:restaurant_id]) 
-    @dish = Dish.find(params[:id]) 
+    @dish = Dish.find(params[:id])
+     
   end 
    
   def update   
